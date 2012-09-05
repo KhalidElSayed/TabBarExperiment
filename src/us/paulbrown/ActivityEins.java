@@ -1,4 +1,4 @@
-package com.example;
+package us.paulbrown;
 
 import android.app.Activity;
 import android.os.Bundle;
