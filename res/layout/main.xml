@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+        >
+    <TextView
+            android:id="@+id/textview1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Hello World, MyActivity"
+            android:layout_alignParentTop="true"
+            />
+    <!--
+    <Button
+            android:id="@+id/button1"
+            android:layout_below="@+id/textview1"
+            android:layout_width="fill_parent"
+            android:layout_height="100dip"
+            android:text="Push Me"
+            />
+            -->
+    <ImageView
+            android:id="@+id/imageview1"
+            android:layout_below="@+id/textview1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/whyfahrenheit"
+            />
+
+    <RelativeLayout
+                android:id="@+id/InnerRelativeLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true" >
+
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/bottomBar"
+                android:layout_width="fill_parent"
+                android:background="@drawable/bottom_bar"
+                android:layout_height="50dip">
+            <ImageButton
+                android:id="@+id/tabBarButton1"
+                android:layout_width="64dp"
+                android:layout_height="50dp"
+                android:src="@drawable/back"
+                />
+            <ImageButton
+                    android:id="@+id/tabBarButton2"
+                    android:layout_width="64dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/next"
+                    />
+            <ImageButton
+                    android:id="@+id/tabBarButton3"
+                    android:layout_width="64dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/back_to_last"
+                    />
+            <ImageButton
+                    android:id="@+id/tabBarButton4"
+                    android:layout_width="64dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/restart"
+                    />
+            <ImageButton
+                    android:id="@+id/tabBarButton5"
+                    android:layout_width="64dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/review"
+                    />
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
+
