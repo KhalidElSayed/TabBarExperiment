@@ -4,28 +4,13 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
         >
-    <TextView
-            android:id="@+id/textview1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello World, MyActivity"
-            android:layout_alignParentTop="true"
-            />
-    <!--
-    <Button
-            android:id="@+id/button1"
-            android:layout_below="@+id/textview1"
-            android:layout_width="fill_parent"
-            android:layout_height="100dip"
-            android:text="Push Me"
-            />
-            -->
     <ImageView
             android:id="@+id/imageview1"
             android:layout_below="@+id/textview1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/whyfahrenheit"
+            android:contentDescription="@string/imageview_contentDescription"
             />
 
     <RelativeLayout
@@ -42,11 +27,11 @@
                 android:background="@drawable/bottom_bar"
                 android:layout_height="50dip">
             <ImageButton
-                android:id="@+id/tabBarButton1"
-                android:layout_width="64dp"
-                android:layout_height="50dp"
-                android:src="@drawable/back"
-                />
+                    android:id="@+id/tabBarButton1"
+                    android:layout_width="64dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/back"
+                    />
             <ImageButton
                     android:id="@+id/tabBarButton2"
                     android:layout_width="64dp"

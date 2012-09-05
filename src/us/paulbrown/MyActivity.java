@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.view.WindowManager;
+import android.view.Window;
 
 public class MyActivity extends Activity {
     /**
@@ -13,7 +15,16 @@ public class MyActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        // Make the application Full-Screen
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //end Full-Screen snippet
+
         setContentView(R.layout.main);
+
 
 
         final ImageView iv = (ImageView)findViewById(R.id.imageview1);
