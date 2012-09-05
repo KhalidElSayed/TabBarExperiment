@@ -12,6 +12,20 @@ public class MyActivity extends Activity {
     /**
      * Called when the activity is first created.
      */
+
+    // Set up some variables
+    private int[] imagesArray = {
+            R.drawable.obnoxious1,
+            R.drawable.obnoxious2,
+            R.drawable.obnoxious3,
+            R.drawable.obnoxious4,
+            R.drawable.obnoxious5,
+    };
+
+
+    int position = 0;
+    int farthestPositionReached = 0;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +42,9 @@ public class MyActivity extends Activity {
 
 
         final ImageView iv = (ImageView)findViewById(R.id.imageview1);
+
+
+
         ImageButton button1 = (ImageButton)findViewById(R.id.tabBarButton1);
         ImageButton button2 = (ImageButton)findViewById(R.id.tabBarButton2);
         ImageButton button3 = (ImageButton)findViewById(R.id.tabBarButton3);
@@ -41,8 +58,7 @@ public class MyActivity extends Activity {
             @Override
             public void onClick(View view) {
                 //startActivity(new Intent(MyActivity.this,ActivityEins.class));
-                ImageView imageViewToChange = (ImageView)findViewById(R.id.imageview1);
-                imageViewToChange.setImageResource(R.drawable.laptopvsurface);
+                navigateToAnotherImage("previous");
             }
         });
 
@@ -50,7 +66,7 @@ public class MyActivity extends Activity {
             @Override
             public void onClick(View view) {
                 //startActivity(new Intent(MyActivity.this,ActivityEins.class));
-                iv.setImageResource(R.drawable.nesmug);
+                navigateToAnotherImage("next");
             }
         });
 
@@ -58,7 +74,7 @@ public class MyActivity extends Activity {
             @Override
             public void onClick(View view) {
                 //startActivity(new Intent(MyActivity.this,ActivityEins.class));
-                iv.setImageResource(R.drawable.legoskel);
+                navigateToAnotherImage("farthest");
             }
         });
 
@@ -66,7 +82,7 @@ public class MyActivity extends Activity {
             @Override
             public void onClick(View view) {
                 //startActivity(new Intent(MyActivity.this,ActivityEins.class));
-                iv.setImageResource(R.drawable.whyfahrenheit);
+                navigateToAnotherImage("restart");
             }
         });
 
@@ -78,5 +94,34 @@ public class MyActivity extends Activity {
             }
         });
 
+    }
+
+
+    public void navigateToAnotherImage(String whatImage) {
+        if ((whatImage.equals("next")) && position<4) {
+            position++;
+            final ImageView iv = (ImageView)findViewById(R.id.imageview1);
+            iv.setImageResource(imagesArray[position]);
+        }
+        else if ((whatImage.equals("previous")) && position>0) {
+            position--;
+            final ImageView iv = (ImageView)findViewById(R.id.imageview1);
+            iv.setImageResource(imagesArray[position]);
+        }
+        else if (whatImage.equals("restart")) {
+            position=0;
+            farthestPositionReached = 0;
+            final ImageView iv = (ImageView)findViewById(R.id.imageview1);
+            iv.setImageResource(imagesArray[position]);
+        }
+        else if (whatImage.equals("farthest")) {
+            position=farthestPositionReached;
+            final ImageView iv = (ImageView)findViewById(R.id.imageview1);
+            iv.setImageResource(imagesArray[position]);
+        }
+
+        if (farthestPositionReached < position) {
+            farthestPositionReached = position;
+        }
     }
 }

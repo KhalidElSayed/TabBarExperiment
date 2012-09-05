@@ -9,7 +9,7 @@
             android:layout_below="@+id/textview1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/whyfahrenheit"
+            android:src="@drawable/obnoxious1"
             android:contentDescription="@string/imageview_contentDescription"
             />
 
