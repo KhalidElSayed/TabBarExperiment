@@ -13,5 +13,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ActivityEins" android:label="activity_eins"/>
+        <activity android:name=".RestartDialog" android:label="restartdialog"/>
     </application>
 </manifest>
