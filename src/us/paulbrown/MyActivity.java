@@ -1,5 +1,11 @@
 package us.paulbrown;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -24,11 +30,8 @@ public class MyActivity extends Activity {
      * Called when the activity is first created.
      */
 
-    /*
-    Testing github commit
-     */
-
-
+	
+	
 
     // Set up some variables
     private int[] imagesArray = {
@@ -49,10 +52,46 @@ public class MyActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //addListenerOnLastButton();
-
-
+        
+        
+        //Set up PTTController instance
+        //---------------------------------------------------------
+        //-------------NOTE: THIS SETS UP EVERYTHING---------------
+        //---------------------------------------------------------
+        PTTController controller = new PTTController();
+        //---------------------------------------------------------
+        //---------------------------------------------------------
+        
+        
+        
+        //Let's Log out the text of the first node's question, and it's answers' text and node targets
+        
+        Log.d("QUESTION0",controller.getQuestionForNodeNumber(0));
+        
+        
+        //Test for answers in nodes
+        ArrayList<PTTAnswer> answers0 = controller.getAnswersForNodeNumber(0);
+        Log.d("NODE0 ANSWER0 TEXT",answers0.get(0).getAnswer());
+        Log.d("NODE0 ANSWER0 TARGET",Integer.toString(answers0.get(0).getNodeId()));
+        Log.d("NODE0 ANSWER1 TEXT",answers0.get(1).getAnswer());
+        Log.d("NODE0 ANSWER1 TARGET",Integer.toString(answers0.get(1).getNodeId()));
+        
+        //and let's do the same for the second node
+        Log.d("QUESTION1",controller.getQuestionForNodeNumber(1));
+        
+        
+        ArrayList<PTTAnswer> answers1 = controller.getAnswersForNodeNumber(1);
+        Log.d("NODE1 ANSWER0 TEXT",answers1.get(0).getAnswer());
+        Log.d("NODE1 ANSWER0 TARGET",Integer.toString(answers1.get(0).getNodeId()));
+        Log.d("NODE1 ANSWER1 TEXT",answers1.get(1).getAnswer());
+        Log.d("NODE1 ANSWER1 TARGET",Integer.toString(answers1.get(1).getNodeId()));
+        
+        
+    	
+    	
+    	//addListenerOnLastButton();
+    	
+    	
         // Make the application Full-Screen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
