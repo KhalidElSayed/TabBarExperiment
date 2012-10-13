@@ -24,6 +24,10 @@ public class MyActivity extends Activity {
      * Called when the activity is first created.
      */
 
+    /*
+    Testing github commit
+     */
+
 
 
     // Set up some variables
