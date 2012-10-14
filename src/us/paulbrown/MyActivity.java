@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.view.WindowManager;
 import android.view.Window;
 import android.widget.Toast;
@@ -88,7 +89,6 @@ public class MyActivity extends Activity {
         
         
     	
-    	
     	//addListenerOnLastButton();
     	
     	
@@ -102,6 +102,31 @@ public class MyActivity extends Activity {
         //end Full-Screen snippet
 
         setContentView(R.layout.main);
+        
+        //Get question text and put it on the screen
+        TextView tv = new TextView(this);
+    	tv = (TextView)findViewById(R.id.questionTextView);
+    	PTTNode currentNode = controller.currentNode;
+    	tv.setText(currentNode.getQuestion());
+    	
+    	//Get answers and put them on the buttons.
+    	//Right now we're assuming only 2 answers
+    	
+    	ArrayList<PTTAnswer> answers = currentNode.getAnswers();
+    	Button b0;
+    	Button b1;
+    	switch (answers.size()) {
+    		case 0: break;
+    		case 1: b0 = (Button)findViewById(R.id.answerButton0);
+    				String s = answers.get(0).answer;
+    				b0.setText(s);
+    		case 2: b0 = (Button)findViewById(R.id.answerButton0);
+					String s0 = answers.get(0).answer;
+					b0.setText(s0);
+					b1 = (Button)findViewById(R.id.answerButton1);
+					String s1 = answers.get(1).answer;
+					b1.setText(s1);
+    	}
 
 
 
@@ -131,6 +156,7 @@ public class MyActivity extends Activity {
             public void onClick(View view) {
                 //startActivity(new Intent(MyActivity.this,ActivityEins.class));
                 navigateToAnotherImage("next");
+                
             }
         });
 

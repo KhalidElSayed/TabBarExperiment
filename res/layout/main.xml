@@ -4,15 +4,58 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
         >
-    <ImageView
-            android:id="@+id/imageview1"
-            android:layout_below="@+id/textview1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/obnoxious1"
-            android:contentDescription="@string/imageview_contentDescription"
-            />
+	
+    
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="380dp"
+        android:background="#fff">
 
+    	<LinearLayout
+    	    android:layout_width="match_parent"
+    	    android:layout_height="wrap_content"
+    	    android:layout_alignParentLeft="true"
+    	    android:layout_marginTop="14dp"
+    	    android:orientation="vertical" >
+
+    	    <TextView
+    	        android:id="@+id/questionTextView"
+    	        android:layout_width="wrap_content"
+    	        android:layout_height="wrap_content"
+    	        android:layout_marginBottom="100dp"
+    	        android:background="#fff"
+    	        android:text="TextView"
+    	        android:textSize="30px"
+    	        android:textColor="#000" />
+
+    	    <Button
+    	        android:id="@+id/answerButton0"
+    	        android:layout_width="fill_parent"
+    	        android:layout_height="wrap_content"
+    	        android:layout_marginLeft="100dip"
+				android:layout_marginRight="100dip"
+    	        android:text="Button" />
+
+    	    <Button
+    	        android:id="@+id/answerButton1"
+    	        android:layout_width="fill_parent"
+    	        android:layout_height="wrap_content"
+    	        android:layout_marginLeft="100dip"
+				android:layout_marginRight="100dip"
+    	        android:text="Button" />
+
+    	    <ImageView
+    	        android:id="@+id/imageview1"
+    	        android:layout_width="fill_parent"
+    	        android:layout_height="100dp"
+    	        android:contentDescription="@string/imageview_contentDescription"
+    	        android:src="@drawable/obnoxious1" />
+
+    	</LinearLayout>
+        
+    </RelativeLayout>
+    
     <RelativeLayout
                 android:id="@+id/InnerRelativeLayout"
                 android:layout_width="match_parent"
@@ -64,5 +107,6 @@
                     />
 
     </RelativeLayout>
+
 </RelativeLayout>
 

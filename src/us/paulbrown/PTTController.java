@@ -7,9 +7,9 @@ import android.util.Log;
 
 public class PTTController {
 	
-	int historyPosition;
 	HashMap<Integer, PTTNode> nodes;
 	PTTNode currentNode;
+	int historyPosition;
 	
 
 	public PTTController() {
@@ -20,8 +20,8 @@ public class PTTController {
 		
 		
 		//filler code that creates some nodes. we need to abstract this out
-		PTTAnswer node0answer0 = new PTTAnswer(1, "Yes");
-		PTTAnswer node0answer1 = new PTTAnswer(2, "No");
+		PTTAnswer node0answer0 = new PTTAnswer(1, "YAY");
+		PTTAnswer node0answer1 = new PTTAnswer(2, "NAY");
 		
 		ArrayList<PTTAnswer> answers0 = new ArrayList<PTTAnswer>();
 		answers0.add(node0answer0);
@@ -46,13 +46,19 @@ public class PTTController {
 		//end filler code to create nodes
 		
 		
-		//map to hold nodes
+		//creating the map to hold nodes
 		this.nodes = new HashMap<Integer, PTTNode>();
 		this.nodes.put(node0.getId(),node0);
 		this.nodes.put(node1.getId(),node1);
+		
+		
+		this.currentNode = node0;
 	}
 	
 	
+	
+	
+
 	//this method returns the question for a particular node
 	public String getQuestionForNodeNumber(int nodeNumber) {
 		PTTNode n = this.nodes.get(nodeNumber);
@@ -91,6 +97,18 @@ public class PTTController {
 
 	public void setHistoryPosition(int historyPosition) {
 		this.historyPosition = historyPosition;
+	}
+	
+	public PTTNode getCurrentNode() {
+		return currentNode;
+	}
+
+
+
+
+
+	public void setCurrentNode(PTTNode currentNode) {
+		this.currentNode = currentNode;
 	}
 
 }

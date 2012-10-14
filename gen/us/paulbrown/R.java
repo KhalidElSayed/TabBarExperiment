@@ -33,14 +33,17 @@ public final class R {
         public static final int whyfahrenheit=0x7f020013;
     }
     public static final class id {
-        public static final int InnerRelativeLayout=0x7f050002;
-        public static final int btn_dialog=0x7f050008;
-        public static final int imageview1=0x7f050001;
-        public static final int tabBarButton1=0x7f050003;
-        public static final int tabBarButton2=0x7f050004;
-        public static final int tabBarButton3=0x7f050005;
-        public static final int tabBarButton4=0x7f050006;
-        public static final int tabBarButton5=0x7f050007;
+        public static final int InnerRelativeLayout=0x7f050005;
+        public static final int answerButton0=0x7f050002;
+        public static final int answerButton1=0x7f050003;
+        public static final int btn_dialog=0x7f05000b;
+        public static final int imageview1=0x7f050004;
+        public static final int questionTextView=0x7f050001;
+        public static final int tabBarButton1=0x7f050006;
+        public static final int tabBarButton2=0x7f050007;
+        public static final int tabBarButton3=0x7f050008;
+        public static final int tabBarButton4=0x7f050009;
+        public static final int tabBarButton5=0x7f05000a;
         public static final int textview1=0x7f050000;
     }
     public static final class layout {
