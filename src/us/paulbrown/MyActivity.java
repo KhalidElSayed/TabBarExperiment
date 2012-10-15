@@ -47,6 +47,8 @@ public class MyActivity extends Activity {
     int position = 0;
     int farthestPositionReached = 0;
 
+    final PTTController controller = new PTTController();
+
     CharSequence[] items = { "Google","Apple","Microsoft" };
     boolean[] itemsChecked = new boolean [items.length];
 
@@ -59,7 +61,7 @@ public class MyActivity extends Activity {
         //---------------------------------------------------------
         //-------------NOTE: THIS SETS UP EVERYTHING---------------
         //---------------------------------------------------------
-        PTTController controller = new PTTController();
+        //PTTController controller = new PTTController();
         //---------------------------------------------------------
         //---------------------------------------------------------
         
@@ -120,12 +122,34 @@ public class MyActivity extends Activity {
     		case 1: b0 = (Button)findViewById(R.id.answerButton0);
     				String s = answers.get(0).answer;
     				b0.setText(s);
+
     		case 2: b0 = (Button)findViewById(R.id.answerButton0);
 					String s0 = answers.get(0).answer;
 					b0.setText(s0);
-					b1 = (Button)findViewById(R.id.answerButton1);
-					String s1 = answers.get(1).answer;
-					b1.setText(s1);
+                    final int answer0Node = answers.get(0).nodeId;
+                    b0.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d("GOTO Node:",Integer.toString(answer0Node));
+                            controller.setCurrentNode(answer0Node);
+                            navigateToAnotherNode(answer0Node);
+
+                        }
+                    });
+
+                    b1 = (Button)findViewById(R.id.answerButton1);
+                    String s1 = answers.get(1).answer;
+                    b1.setText(s1);
+                    final int answer1Node = answers.get(1).nodeId;
+                    b1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d("GOTO Node:",Integer.toString(answer1Node));
+                            controller.setCurrentNode(answer1Node);
+                            navigateToAnotherNode(answer1Node);
+
+                    }
+                });
     	}
 
 
@@ -207,6 +231,20 @@ public class MyActivity extends Activity {
         }
     }
 
+
+    public void navigateToAnotherNode(int nodeId) {
+        //Get question text and put it on the screen
+        Log.d("NAVOTNODE","NavToNode"+nodeId);
+        TextView tv = (TextView)findViewById(R.id.questionTextView);
+        PTTNode currentNode = controller.currentNode;
+        tv.setText(currentNode.getQuestion());
+
+        final ImageView iv = (ImageView)findViewById(R.id.imageview1);
+        iv.setImageResource(imagesArray[nodeId]);
+
+    }
+
+
     public void addListenerOnLastButton() {
         //Log.d("PAULBROWN","MESSAGE");
 
@@ -240,6 +278,9 @@ public class MyActivity extends Activity {
                 farthestPositionReached = 0;
                 final ImageView iv = (ImageView)findViewById(R.id.imageview1);
                 iv.setImageResource(imagesArray[position]);
+                controller.setCurrentNode(0);
+                navigateToAnotherNode(0);
+
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -256,6 +297,8 @@ public class MyActivity extends Activity {
 
         //showDialog(0);
     }
+
+
 
 
     /*

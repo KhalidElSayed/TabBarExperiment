@@ -20,19 +20,35 @@ public class PTTController {
 		
 		
 		//filler code that creates some nodes. we need to abstract this out
+
+        //Node 0
+        String node0Question = "Does the patient have prolonged PTT and normal PT?";
+
 		PTTAnswer node0answer0 = new PTTAnswer(1, "YAY");
 		PTTAnswer node0answer1 = new PTTAnswer(2, "NAY");
 		
 		ArrayList<PTTAnswer> answers0 = new ArrayList<PTTAnswer>();
 		answers0.add(node0answer0);
 		answers0.add(node0answer1);
-		
+        //End Node 0
+
+		//Node 1
+        String node1Question = "Is the patient older than 6 months?";
+
 		PTTAnswer node1answer0 = new PTTAnswer(3, "Yes");
 		PTTAnswer node1answer1 = new PTTAnswer(4, "No");
 		
 		ArrayList<PTTAnswer> answers1 = new ArrayList<PTTAnswer>();
 		answers1.add(node1answer0);
 		answers1.add(node1answer1);
+        //End Node 1
+
+        //Node 2
+        String node2Question = "There is currently no algorithm for a patient meeting this criteria.";
+
+        //There are no answers. I am putting in an ampty array. We need to account for an empty answers array in the PTTNode constructor
+        ArrayList<PTTAnswer> answers2 = new ArrayList<PTTAnswer>();
+        //End Node 2
 		
 		
 		
@@ -40,8 +56,9 @@ public class PTTController {
 		ArrayList<String> footnotes = new ArrayList<String>();
 		footnotes.add("none");
 		
-		PTTNode node0 = new PTTNode(0,"Does the patient have prolonged PTT and normal PT?",answers0,footnotes);
-		PTTNode node1 = new PTTNode(1,"Is the patient older than 6 months?",answers1,footnotes);
+		PTTNode node0 = new PTTNode(0,node0Question,answers0,footnotes);
+		PTTNode node1 = new PTTNode(1,node1Question,answers1,footnotes);
+        PTTNode node2 = new PTTNode(2,node2Question,answers2,footnotes);
 		
 		//end filler code to create nodes
 		
@@ -50,6 +67,7 @@ public class PTTController {
 		this.nodes = new HashMap<Integer, PTTNode>();
 		this.nodes.put(node0.getId(),node0);
 		this.nodes.put(node1.getId(),node1);
+        this.nodes.put(node2.getId(),node2);
 		
 		
 		this.currentNode = node0;
@@ -107,8 +125,8 @@ public class PTTController {
 
 
 
-	public void setCurrentNode(PTTNode currentNode) {
-		this.currentNode = currentNode;
+	public void setCurrentNode(int n) {
+		this.currentNode = this.nodes.get(n);;
 	}
 
 }
