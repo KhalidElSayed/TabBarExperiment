@@ -15,11 +15,9 @@ public class PTTController {
 	public PTTController() {
 		super();
 		this.historyPosition = 0;
-		
-		
-		
-		
-		//filler code that creates some nodes. we need to abstract this out
+
+		//filler code that creates some nodes.
+		//TODO: abstract this out into another init method.
 
         //Node 0
         String node0Question = "Does the patient have prolonged PTT and normal PT?";
@@ -46,7 +44,7 @@ public class PTTController {
         //Node 2
         String node2Question = "There is currently no algorithm for a patient meeting this criteria.";
 
-        //There are no answers. I am putting in an ampty array. We need to account for an empty answers array in the PTTNode constructor
+        //TODO: Account for empty answers (i.e. dead ends on the node tree) in the PTTNode contructor
         ArrayList<PTTAnswer> answers2 = new ArrayList<PTTAnswer>();
         //End Node 2
 		

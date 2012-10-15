@@ -234,14 +234,56 @@ public class MyActivity extends Activity {
 
     public void navigateToAnotherNode(int nodeId) {
         //Get question text and put it on the screen
-        Log.d("NAVOTNODE","NavToNode"+nodeId);
         TextView tv = (TextView)findViewById(R.id.questionTextView);
-        PTTNode currentNode = controller.currentNode;
-        tv.setText(currentNode.getQuestion());
+        tv.setText(controller.currentNode.getQuestion());
+        
+        
+        ArrayList<PTTAnswer> answers = controller.currentNode.getAnswers();
+    	Button b0;
+    	Button b1;
+    	switch (answers.size()) {
+    		case 0: break;
+    		case 1: b0 = (Button)findViewById(R.id.answerButton0);
+    				String s = answers.get(0).answer;
+    				b0.setText(s);
 
-        final ImageView iv = (ImageView)findViewById(R.id.imageview1);
-        iv.setImageResource(imagesArray[nodeId]);
+    		case 2: b0 = (Button)findViewById(R.id.answerButton0);
+					String s0 = answers.get(0).answer;
+					b0.setText(s0);
+                    final int answer0Node = answers.get(0).nodeId;
+                    b0.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d("GOTO Node:",Integer.toString(answer0Node));
+                            controller.setCurrentNode(answer0Node);
+                            navigateToAnotherNode(answer0Node);
 
+                        }
+                    });
+
+                    b1 = (Button)findViewById(R.id.answerButton1);
+                    String s1 = answers.get(1).answer;
+                    b1.setText(s1);
+                    final int answer1Node = answers.get(1).nodeId;
+                    b1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d("GOTO Node:",Integer.toString(answer1Node));
+                            controller.setCurrentNode(answer1Node);
+                            navigateToAnotherNode(answer1Node);
+
+                    }
+                });
+    	}
+        
+        /*
+        Button button0 = (Button)findViewById(R.id.answerButton0);
+        button0.setText(controller.currentNode.getAnswers().get(0).getAnswer());
+
+        Button button1 = (Button)findViewById(R.id.answerButton1);
+        button1.setText(controller.currentNode.getAnswers().get(1).getAnswer());
+        */
+      //TODO: Pull data about the answers and assign an onClickListener to each button
     }
 
 
