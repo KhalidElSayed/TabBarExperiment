@@ -7,4 +7,7 @@
     <string name="contentDescription_farthest_button">contentDescription_farthest_button</string>
     <string name="contentDescription_restart_button">contentDescription_restart_button</string>
     <string name="contentDescription_summary_button">contentDescription_summary_button</string>
+    <string name="helpButtonText">\?</string>
+    <string name="infoButtonText">i</string>
+    <string name="footnotesButtonText">Footnotes</string>
 </resources>
