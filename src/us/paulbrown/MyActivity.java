@@ -22,6 +22,8 @@ import android.widget.TextView;
 import android.view.WindowManager;
 import android.view.Window;
 import android.widget.Toast;
+import android.view.View.OnClickListener;
+import android.content.Context;
 
 
 public class MyActivity extends Activity {
@@ -200,6 +202,15 @@ public class MyActivity extends Activity {
             }
         });
 
+        final Context context = this;
+        Button infoButton = (Button) findViewById(R.id.infoButton);
+        infoButton.setOnClickListener(new OnClickListener() {
+        	@Override
+        	public void onClick(View arg0) {
+        		Intent intent = new Intent(context, InfoScreen.class);
+        		startActivity(intent);
+        	}
+        });
     }
 
 
